@@ -3,7 +3,7 @@ import os.path
 import re
 import shutil
 
-def list(dirname, pattern, repl, options):
+def convert(dirname, pattern, repl, options):
   # create pattern
   _pattern = re.compile(r'{0}'.format(pattern))
 
@@ -55,7 +55,7 @@ def main(args):
     print('dryrun')
 
   # run
-  list(args.base, args.pattern, args.repl, options)
+  convert(args.base, args.pattern, args.repl, options)
 
 if __name__ == '__main__':
   import argparse
