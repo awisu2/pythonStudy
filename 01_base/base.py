@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os.path
 
 # for cli function
 def main(args):
@@ -9,7 +10,8 @@ def main(args):
 
 if __name__ == '__main__':
     import argparse
-    parser = argparse.ArgumentParser(description='this is base of python script')
+    name, _ = os.path.splitext(__file__)
+    parser = argparse.ArgumentParser(description='I am '+name)
 
     # args
     parser.add_argument('vals', metavar='any', type=str, nargs='*', help='any vlues')
