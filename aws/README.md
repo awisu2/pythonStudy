@@ -3,6 +3,7 @@ study with aws
 
 - links
   - [Quickstart — Boto 3 Docs 1\.9\.20 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html)
+- lambda上では、boto3はすでにインストールされている状態だった
 
 hands up
 --------
