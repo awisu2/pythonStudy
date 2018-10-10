@@ -20,6 +20,8 @@ service: slspy # NOTE: update this with your service name
 provider:
   name: aws
   runtime: python3.6
+  region: ap-northeast-1
+#  profile: #anyProfile
 
 # you can overwrite defaults here
 #  stage: dev
