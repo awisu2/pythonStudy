@@ -23,12 +23,16 @@ def arg_parse():
   parser.add_argument('--pinger', dest='pinger', action='store',
                       help='pinger name')
 
+  parser.add_argument('--enum', choices=['a', 'b'], default='b', help='enum arg')
+
   return parser.parse_args()
 
 def main():
   args = arg_parse()
 
-  print(f'nums {args.nums}, accumulate: {args.accumulate(args.nums)}')
+  print(args)
+
+  print(f'nums {args.nums}, accumulate: {args.accumulate(args.nums)}, enum: {args.enum}')
   if args.ping:
     print(f"pong {args.pinger}")
 
