@@ -1,23 +1,36 @@
-from request import get, post
-import json
+import urllib.request, json
 
-URL = 'https://www.google.co.jp/'
+HOOK_URL = ''
+
+def post(url, data='', headers=[], method='GET'):
+  """
+  simple url call
+  """
+  request = urllib.request.Request(url, data=data, headers=headers, method=method)
+  with urllib.request.urlopen(request) as response:
+    text = response.read().decode("utf-8")
+    return text
+
+def slackPost(text):
+  """
+  slack post
+  """
+  data = json.dumps({
+    'text': text
+  }).encode('utf-8')
+  headers = {"Content-Type" : "application/json"}
+  return post(HOOK_URL, data, headers, 'POST')
 
 def main():
-  data = {
-    'foo': 123,
-  }
-  body = get(URL, data=data)
-  print(body)
+  try:
+    if not HOOK_URL:
+      print('please set HOOK_URL')
+      return
 
-  # method not allowed
-  data = {
-      'foo': 123,
-  }
-  headers = {
-    'Content-Type': 'application/json',
-  }
-  post(URL, data=json.dumps(data).encode(), headers=headers)
+    res = slackPost('hello3')
+    print(res)
+  except Exception as e:
+    print(e)
 
 if __name__ == "__main__":
   main()
