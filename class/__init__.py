@@ -38,6 +38,7 @@ class Sub(Base):
     super().__init__(*args, **kwargs)
     self.__subname = subname
 
+  @property
   def subname(self):
     return self.__subname
 
