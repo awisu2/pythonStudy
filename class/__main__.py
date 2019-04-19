@@ -8,7 +8,8 @@ def main():
   base.name = 'change name base'
   base.__name = 'change name nochange' # エラーにはならないが値の変更は起きない
   base.pubname = 'change pubname base'
-  print(f'get class property after set:: name: {base.name}, pubname: {base.pubname}')
+  base.y
+  print(f'get class property after set:: name: {base.name}, pubname: {base.pubname}, x: {base.x}, y: {base.y}')
 
   print('-- sub --')
   sub = Sub('sub', 'sub-base')

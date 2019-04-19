@@ -1,9 +1,13 @@
+from object_property_helper import set_property, set_property_decorator
+
 class Base(object):
   # 普通に記述するとパブリックアクセス可能なプロパティ
   pubname = ''
 
   # "__"をつけるとプライベート
   __name = ''
+
+  x = None
 
   @classmethod
   def create(cls, name):
@@ -13,6 +17,7 @@ class Base(object):
   def any_consts():
     return ('a', 'b', 'c')
 
+  @set_property_decorator('y', 123, is_read=True)
   def __init__(self, name):
     """
     constructor
@@ -22,6 +27,8 @@ class Base(object):
     self.__name = name
     # テストのため、pub_をつけてセット
     self.pubname = 'pub_' + name
+
+    set_property(self, 'x', 999)
 
   # いわゆるgetter
   @property
